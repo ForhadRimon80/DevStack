@@ -2,6 +2,7 @@ import { Suspense, useState } from "react";
 import Nav from "./components/Nav";
 import DevStacksList from "./components/devstacks/DevStacksList";
 import type { IDevStackType } from "./types/DevStackType";
+import Banner from "./components/Banner";
 
 const fetchDevStacks = async (): Promise<IDevStackType[]> => {
   const res = await fetch("/data.json");
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <Nav />
+      <Banner />
 
       <Suspense fallback={<div>Loading...</div>}>
         <DevStacksList devStackPromise={devStackPromise} />
