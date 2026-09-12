@@ -8,7 +8,7 @@ const Nav = () => {
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-gray-50">
-      <div className="container mx-auto px-3 lg:px-6 py-1">
+      <div className="container mx-auto px-3 lg:px-4 py-1">
         {/* Navbar Main */}
         <div className="relative flex h-14 items-center justify-between sm:h-16 lg:h-20">
           {/* Mobile / Tablet Menu Button */}
@@ -80,34 +80,3 @@ const Nav = () => {
 
 export default Nav;
 
-
-// import Logo from '../assets/logo-text.png';
-
-// const Nav = () => {
-//     return (
-//       <nav className="flex justify-between items-center py-6 bg-gray-50">
-//         <div className="flex justify-between items-center container mx-auto">
-//           <img src={Logo} alt="Logo" className="w-28 md:w-44 h-auto" />
-//           <div className="flex justify-between items-center">
-//             <ul className="flex justify-between items-center gap-6 font-medium text-[18px]">
-//               <li className="text-[#D91B7E]">Home</li>
-//               <li className="text-[#475569]">Technologies</li>
-//               <li className="text-[#475569]">Projects</li>
-//               <li className="text-[#475569]">About</li>
-//               <li className="text-[#475569]">Contact</li>
-//             </ul>
-//           </div>
-//           <div className="flex justify-between items-center gap-3">
-//             <button className="font-medium text-[18px] text-center px-4 py-2 hover">
-//               Sign in
-//             </button>
-//             <button className="bg-[#D91B7E] text-white font-semibold text-[18px] text-center px-6 py-3 rounded-4xl hover">
-//               Sign Up
-//             </button>
-//           </div>
-//         </div>
-//       </nav>
-//     );
-// };
-
-// export default Nav;

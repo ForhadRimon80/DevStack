@@ -2,13 +2,13 @@ import bannerImage from "../assets/banner-stack.png";
 
 const Banner = () => {
   return (
-    <div className="container mx-auto mt-12 sm:mt-16 lg:mt-20 px-4 sm:px-6 lg:px-0 ">
+    <div className="container mx-auto mt-12 sm:mt-16 lg:mt-20 px-1.5 sm:px-6 lg:px-0">
       <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-8 md:gap-6 lg:gap-8">
         {/* Left Content */}
-        <div className="col-span-1 md:col-span-7 py-4 sm:py-6 lg:py-10 px-2 sm:px-4 lg:px-8 text-center lg:text-left">
+        <div className="col-span-1 md:col-span-7 py-4 sm:py-6 lg:py-10 px-2 sm:px-4 lg:px-4 text-center lg:text-left">
           <h2 className="font-inter text-[38px] sm:text-[48px] md:text-[54px] lg:text-[68px] font-extrabold leading-[1.05] sm:leading-none">
             Build Your Ideal{" "}
-            <span className="gradient-text">Development Stack</span>
+            <span className="gradient-text1">Development Stack</span>
           </h2>
 
           <p className="text-[#475569] text-[15px] sm:text-[16px] lg:text-[18px] max-w-full sm:max-w-xl lg:w-143.75 mt-5 sm:mt-6 lg:mt-8 leading-relaxed mx-auto lg:mx-0">

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
+@plugin "daisyui";
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -20,15 +21,23 @@ body {
   );
 }
 :root {
-  --brand-gradient: linear-gradient(
+  --brand-gradient2: linear-gradient(
     100deg,
     #ff6b1a 0%,
     #f2387d 100%
   );
 }
 
+:root {
+  --brand-gradient3: linear-gradient(
+    100deg,
+    #f2387d -50%,
+    #8b3dff 200%
+  );
+}
+
 /* Gradient Text */
-.gradient-text {
+.gradient-text1 {
   background: var(--brand-gradient1);
   -webkit-background-clip: text;
   background-clip: text;
@@ -37,6 +46,13 @@ body {
 
 /* Primary Button */
 .gradient-button {
-  background: var(--brand-gradient);
+  background: var(--brand-gradient2);
   color: white;
+}
+
+.gradient-text2 {
+  background: var(--brand-gradient3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
