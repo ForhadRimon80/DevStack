@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-
 import Logo from "../assets/logo-text.png";
+
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

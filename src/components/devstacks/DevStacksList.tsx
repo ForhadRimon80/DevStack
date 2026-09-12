@@ -19,7 +19,11 @@ const DevStacksList = ({ devStackPromise }: IDevStackProps) => {
   const handleAddToStack = (devStack: IDevStackType) => {
     const alreadyAdded = selectedStack.some((item) => item.id === devStack.id);
 
-    if (alreadyAdded) return;
+    // Duplicate Add Attempt
+    if (alreadyAdded) {
+      toast.info(`${devStack.name} is already in your stack!`);
+      return;
+    }
 
     setSelectedStack((prev) => [...prev, devStack]);
 
@@ -34,7 +38,7 @@ const DevStacksList = ({ devStackPromise }: IDevStackProps) => {
 
     setSelectedStack((prev) => prev.filter((item) => item.id !== id));
 
-    toast.success(`${removedItem.name} removed from your stack!`);
+    toast.warning(`${removedItem.name} removed from your stack!`);
   };
 
   // Remove All
@@ -43,7 +47,7 @@ const DevStacksList = ({ devStackPromise }: IDevStackProps) => {
 
     setSelectedStack([]);
 
-    toast.success("All technologies removed from your stack!");
+    toast.warning("All technologies removed from your stack!");
   };
 
   return (
@@ -101,6 +105,6 @@ const DevStacksList = ({ devStackPromise }: IDevStackProps) => {
       />
     </>
   );
-};
+};;
 
 export default DevStacksList;

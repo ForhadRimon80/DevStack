@@ -60,6 +60,34 @@ const DevStackCard = ({ devStack, onAdd, isAdded }: IDevStackCardProps) => {
 
         {/* Button */}
         <div className="card-actions mt-3 sm:mt-4">
+          <div
+            className="w-full"
+            onMouseEnter={() => {
+              if (isAdded) {
+                onAdd(devStack);
+              }
+            }}>
+            <button
+              onClick={() => onAdd(devStack)}
+              disabled={isAdded}
+              className={`btn h-9 min-h-9 w-full rounded-lg px-2 text-[12px] font-medium sm:h-10 sm:min-h-10 sm:text-[13px] lg:h-12 lg:min-h-12 lg:px-4 lg:text-[16px] ${
+                isAdded
+                  ? "cursor-not-allowed border border-[#D91B7E] bg-[#FFF1F7] text-[#D91B7E]"
+                  : "border-none bg-[#080d1d] text-white hover:bg-gray-800"
+              }`}>
+              {isAdded ? (
+                <span className="flex items-center justify-center gap-1">
+                  <GiCheckMark className="text-[12px] sm:text-[13px] lg:text-[16px]" />
+                  Added to Stack
+                </span>
+              ) : (
+                "Add to Stack"
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* <div className="card-actions mt-3 sm:mt-4">
           <button
             onClick={() => onAdd(devStack)}
             disabled={isAdded}
@@ -77,7 +105,7 @@ const DevStackCard = ({ devStack, onAdd, isAdded }: IDevStackCardProps) => {
               "Add to Stack"
             )}
           </button>
-        </div>
+        </div> */}
       </div>
     </article>
   );

@@ -13,7 +13,7 @@ const YourStack = ({
   onRemoveAll,
 }: IYourStackProps) => {
   return (
-    <aside className="w-full rounded-3xl border border-gray-100 bg-white p-5 shadow-sm sm:p-6 lg:sticky lg:top-5 lg:p-7">
+    <div className="w-full rounded-3xl border border-gray-100 bg-white p-5 shadow-sm sm:p-6 lg:p-7">
       {/* Header */}
       <div>
         <h2 className="text-[22px] font-bold text-gray-900 sm:text-[24px]">
@@ -86,7 +86,7 @@ const YourStack = ({
           Remove All
         </button>
       )}
-    </aside>
+    </div>
   );
 };
 
