@@ -1,91 +1,77 @@
-import { useState } from "react";
-import { FaCheck, FaStar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa6";
+import { GiCheckMark } from "react-icons/gi";
 import type { IDevStackType } from "../../types/DevStackType";
 
 interface IDevStackCardProps {
   devStack: IDevStackType;
   onAdd: (devStack: IDevStackType) => void;
+  isAdded: boolean;
 }
 
-const DevStackCard = ({ devStack, onAdd }: IDevStackCardProps) => {
-  const [isAdded, setIsAdded] = useState(false);
-
-  const handleAdd = () => {
-    onAdd(devStack);
-    setIsAdded(true);
-  };
-
+const DevStackCard = ({ devStack, onAdd, isAdded }: IDevStackCardProps) => {
   return (
-    <div
-      className={`card w-full max-w-120.5 bg-white rounded-3xl shadow-sm transition-shadow duration-300 ${
+    <article
+      className={`card w-full min-h-auto rounded-3xl bg-white shadow-sm transition-shadow duration-300 ${
         isAdded
           ? "border-2 border-[#D91B7E]"
-          : "border border-slate-100 hover:shadow-2xl"
+          : "border border-gray-100 hover:shadow-2xl"
       }`}>
-      <div className="card-body p-8">
-        {/* Logo and Badge */}
-        <div className="flex items-start justify-between">
-          {/* Icon */}
-          <div className="w-16 h-16 flex items-center justify-center">
+      <div className="card-body p-4 sm:p-5 lg:p-8">
+        {/* Header */}
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center sm:h-9 sm:w-9 lg:h-10 lg:w-10">
             <img
               src={devStack.icon}
               alt={devStack.name}
-              className="w-12 h-12 object-contain"
+              className="h-8 w-8 object-contain sm:h-9 sm:w-9 lg:h-10 lg:w-10"
             />
           </div>
 
-          {/* Badge */}
-          <span className="badge badge-lg rounded-full bg-sky-50 border border-sky-100 text-sky-500 px-5 py-4 font-medium">
+          <span className="badge max-w-[55%] truncate rounded-full border border-sky-100 bg-sky-50 px-3 py-2 text-[11px] font-medium text-sky-500 sm:px-4 sm:text-xs lg:px-5 lg:py-4 lg:text-sm">
             {devStack.badge}
           </span>
         </div>
 
         {/* Title */}
-        <h2 className="text-[34px] leading-tight font-bold text-slate-900 mt-5">
+        <h2 className="mt-3 text-[15px] font-bold leading-tight text-gray-900 sm:mt-4 sm:text-[16px] lg:mt-5 lg:text-[18px]">
           {devStack.name}
         </h2>
 
         {/* Description */}
-        <p className="text-[21px] leading-[1.7] text-slate-500 mt-3 min-h-26.25">
+        <p className="mt-1 text-[12px] leading-normal text-gray-500 sm:text-[13px] lg:text-[15px] lg:leading-[1.7]">
           {devStack.description}
         </p>
 
-        {/* Category, Difficulty, Rating */}
-        <div className="flex items-center justify-between gap-3 mt-6 pt-4">
-          {/* Category */}
-          <span className="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-[17px]">
+        {/* Meta Information */}
+        <div className="flex items-center justify-between gap-1.5 pt-3 sm:pt-4">
+          <span className="max-w-[40%] truncate rounded-lg bg-gray-100 px-2 py-1.5 text-[10px] font-medium text-gray-600 sm:px-3 sm:text-[11px] lg:px-4 lg:py-2 lg:text-[13px]">
             {devStack.category}
           </span>
 
-          {/* Difficulty */}
-          <span className="text-slate-500 text-[17px]">
+          <span className="whitespace-nowrap text-[10px] font-medium text-gray-500 sm:text-[11px] lg:text-[13px]">
             {devStack.difficulty}
           </span>
 
-          {/* Rating */}
-          <div className="flex items-center gap-2 text-slate-700 text-[17px]">
-            <span className="text-yellow-400 text-xl">
-              <FaStar />
-            </span>
-
+          <div className="flex shrink-0 items-center gap-1 text-[10px] font-semibold text-gray-700 sm:text-[11px] lg:gap-2 lg:text-[13px]">
+            <FaStar className="text-[11px] text-yellow-400 lg:text-[14px]" />
             <span>{devStack.rating}</span>
           </div>
         </div>
 
-        {/* Add Button */}
-        <div className="card-actions mt-7">
+        {/* Button */}
+        <div className="card-actions mt-3 sm:mt-4">
           <button
-            onClick={handleAdd}
+            onClick={() => onAdd(devStack)}
             disabled={isAdded}
-            className={`btn w-full h-16 min-h-0 rounded-[14px] text-[21px] font-normal ${
+            className={`btn h-9 min-h-9 w-full rounded-lg px-2 text-[12px] font-medium sm:h-10 sm:min-h-10 sm:text-[13px] lg:h-12 lg:min-h-12 lg:px-4 lg:text-[16px] ${
               isAdded
-                ? "bg-[#FFF1F7] border border-[#D91B7E] text-[#D91B7E] hover:bg-[#FFF1F7] cursor-not-allowed"
-                : "bg-[#080d1d] hover:bg-slate-800 border-none text-white"
+                ? "cursor-not-allowed border border-[#D91B7E] bg-[#FFF1F7] text-[#D91B7E]"
+                : "border-none bg-[#080d1d] text-white hover:bg-gray-800"
             }`}>
             {isAdded ? (
-              <span className="flex items-center justify-center gap-2">
-                <FaCheck className="text-[18px]" />
-                Added to Stock
+              <span className="flex items-center justify-center gap-1">
+                <GiCheckMark className="text-[12px] sm:text-[13px] lg:text-[16px]" />
+                Added to Stack
               </span>
             ) : (
               "Add to Stack"
@@ -93,160 +79,8 @@ const DevStackCard = ({ devStack, onAdd }: IDevStackCardProps) => {
           </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
 export default DevStackCard;
-
-// import type { IDevStackType } from "../../types/DevStackType";
-
-// interface IDevStackCardProps {
-//   devStack: IDevStackType;
-//   onAdd: (devStack: IDevStackType) => void;
-// }
-
-// const DevStackCard = ({ devStack, onAdd }: IDevStackCardProps) => {
-//   return (
-//     <div className="card w-full max-w-120.5 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-2xl transition-shadow duration-300">
-//       <div className="card-body p-8">
-//         {/* Logo and Badge */}
-//         <div className="flex items-start justify-between">
-//           {/* Icon */}
-//           <div className="w-16 h-16 flex items-center justify-center">
-//             <img
-//               src={devStack.icon}
-//               alt={devStack.name}
-//               className="w-12 h-12 object-contain"
-//             />
-//           </div>
-
-//           {/* Badge */}
-//           <span className="badge badge-lg rounded-full bg-sky-50 border border-sky-100 text-sky-500 px-5 py-4 font-medium">
-//             {devStack.badge}
-//           </span>
-//         </div>
-
-//         {/* Title */}
-//         <h2 className="text-[34px] leading-tight font-bold text-slate-900 mt-5">
-//           {devStack.name}
-//         </h2>
-
-//         {/* Description */}
-//         <p className="text-[21px] leading-[1.7] text-slate-500 mt-3 min-h-26.25">
-//           {devStack.description}
-//         </p>
-
-//         {/* Category, Difficulty, Rating */}
-//         <div className="flex items-center justify-between gap-3 mt-6 pt-4">
-//           {/* Category */}
-//           <span className="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-[17px]">
-//             {devStack.category}
-//           </span>
-
-//           {/* Difficulty */}
-//           <span className="text-slate-500 text-[17px]">
-//             {devStack.difficulty}
-//           </span>
-
-//           {/* Rating */}
-//           <div className="flex items-center gap-2 text-slate-700 text-[17px]">
-//             <span className="text-yellow-400 text-xl">
-//               <FaStar />
-//             </span>
-
-//             <span>{devStack.rating}</span>
-//           </div>
-//         </div>
-
-//         {/* Add Button */}
-//         <div className="card-actions mt-7">
-//           <button
-//             onClick={() => onAdd(devStack)}
-//             className="btn w-full h-16 min-h-0 rounded-[14px] bg-[#080d1d] hover:bg-slate-800 border-none text-white text-[21px] font-normal">
-//             Add to Stack
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default DevStackCard;
-
-// // import { FaStar} from "react-icons/fa6";
-// // import type { IDevStackType } from "../../types/DevStackType";
-// // // import { Bounce, toast } from "react-toastify";
-
-// // interface IDevStackCardProps {
-// //   devStack: IDevStackType;
-// // }
-
-// // const DevStackCard = ({ devStack }: IDevStackCardProps) => {
-// //   console.log(devStack);
-// //   return (
-
-// //     <div className=" card w-full max-w-120.5 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-2xl transition-shadow duration-300">
-// //       {/* Card Section */}
-// //       <div className="card-body p-8">
-// //         {/* Logo and Badge Section */}
-// //         <div className="flex items-start justify-between">
-// //           {/* Icon */}
-// //           <div className="w-16 h-16 flex items-center justify-center">
-// //             <img
-// //               src={devStack.icon}
-// //               alt={devStack.name}
-// //               className="w-12 h-12 object-contain"
-// //             />
-// //           </div>
-
-// //           {/* Badge */}
-// //           <span className="badge badge-lg rounded-full bg-sky-50 border border-sky-100 text-sky-500 px-5 py-4 font-medium">
-// //             {devStack.badge}
-// //           </span>
-// //         </div>
-
-// //         {/* Title */}
-// //         <h2 className="text-[34px] leading-tight font-bold text-slate-900 mt-5">
-// //           {devStack.name}
-// //         </h2>
-
-// //         {/* Description */}
-// //         <p className="text-[21px] leading-[1.7] text-slate-500 mt-3 min-h-26.25">
-// //           {devStack.description}
-// //         </p>
-
-// //         {/* Category, Difficulty, Rating Section */}
-// //         <div className="flex items-center justify-between gap-3 mt-6 pt-4">
-// //           {/* Category */}
-// //           <span className="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-[17px]">
-// //             {devStack.category}
-// //           </span>
-
-// //           {/* Difficulty */}
-// //           <span className="text-slate-500 text-[17px]">
-// //             {devStack.difficulty}
-// //           </span>
-
-// //           {/* Rating */}
-// //           <div className="flex items-center gap-2 text-slate-700 text-[17px]">
-// //             <span className="text-yellow-400 text-xl">
-// //               <FaStar />
-// //             </span>
-// //             <span>{devStack.rating}</span>
-// //           </div>
-// //         </div>
-
-// //         {/* Button */}
-// //         <div className="card-actions mt-7">
-// //           <button className="btn w-full h-16 min-h-0 rounded-[14px] bg-[#080d1d] hover:bg-slate-800 border-none text-white text-[21px] font-normal">
-// //             Add to Stack
-// //           </button>
-// //         </div>
-// //       </div>
-
-// //     </div>
-// //   );
-// // };
-
-// // export default DevStackCard;

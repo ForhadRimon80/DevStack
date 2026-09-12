@@ -6,7 +6,7 @@ const Banner = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-8 md:gap-6 lg:gap-8">
         {/* Left Content */}
         <div className="col-span-1 md:col-span-7 py-4 sm:py-6 lg:py-10 px-2 sm:px-4 lg:px-4 text-center lg:text-left">
-          <h2 className="font-inter text-[38px] sm:text-[48px] md:text-[54px] lg:text-[68px] font-extrabold leading-[1.05] sm:leading-none">
+          <h2 className="font-inter text-[38px] sm:text-[48px] md:text-[54px] lg:text-[65px] font-extrabold leading-[1.05] sm:leading-none">
             Build Your Ideal{" "}
             <span className="gradient-text1">Development Stack</span>
           </h2>

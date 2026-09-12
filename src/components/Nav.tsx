@@ -27,35 +27,35 @@ const Nav = () => {
           {/* Logo */}
           <div
             className="
-              absolute left-1/2 -translate-x-1/2
-              lg:static lg:translate-x-0
+              absolute left-1/2 -trangray-x-1/2
+              lg:static lg:trangray-x-0
               lg:flex-1
             ">
             <img
               src={Logo}
               alt="DevStack Logo"
-              className=" h-auto w-21 sm:w-28 md:w-32 lg:w-40 xl:w-44 "
+              className=" h-auto w-21 sm:w-28 md:w-32 lg:w-40"
             />
           </div>
 
           {/* Desktop Navigation */}
           <ul className="hidden items-center gap-4 font-medium text-sm lg:flex xl:gap-6 xl:text-base 2xl:gap-7 ">
-            <li className="text-[#D91B7E]">Home</li>
-            <li className="text-[#475569]">Technologies</li>
-            <li className="text-[#475569]">Projects</li>
-            <li className="text-[#475569]">About</li>
-            <li className="text-[#475569]">Contact</li>
+            <a href="#" className="text-[#D91B7E]">Home</a>
+            <a href="#" className="text-[#475569]">Technologies</a>
+            <a href="#" className="text-[#475569]">Projects</a>
+            <a href="#" className="text-[#475569]">About</a>
+            <a href="#" className="text-[#475569]">Contact</a>
           </ul>
 
           {/* Sign In + Sign Up */}
-          <div className=" flex items-center justify-end gap-1 sm:gap-2 md:gap-3 lg:flex-1 lg:gap-2 xl:gap-3">
+          <div className=" flex items-center justify-end gap-1 sm:gap-2 md:gap-3 lg:flex-1 lg:gap-2">
             {/* Sign In */}
-            <button className="px-1 py-1 text-[10px] font-medium text-[#475569] sm:px-2 sm:text-xs md:px-3 md:text-sm lg:px-3 lg:text-base xl:px-4 xl:text-lg">
+            <button className="px-1 py-1 text-[10px] font-medium text-[#475569] sm:px-2 sm:text-xs md:px-3 md:text-sm lg:px-3 lg:text-base xl:px-4">
               Sign In
             </button>
 
             {/* Sign Up */}
-            <button className="rounded-full bg-[#D91B7E] px-2.5 py-1.5 text-[10px] font-semibold text-white sm:px-6 sm:py-2 sm:text-xs md:text-sm lg:text-base xl:text-lg">
+            <button className="rounded-full bg-[#D91B7E] px-2.5 py-1.5 text-[10px] font-semibold text-white sm:px-5 sm:py-2 sm:text-xs md:text-sm lg:text-base">
               Sign Up
             </button>
           </div>
@@ -65,11 +65,11 @@ const Nav = () => {
         {isMenuOpen && (
           <div className="border-t border-gray-200 py-3 sm:py-4 lg:hidden">
             <ul className="flex flex-col items-center gap-3 text-center text-sm font-medium sm:gap-4 sm:text-base">
-              <li className="text-[#D91B7E]">Home</li>
-              <li className="text-[#475569]">Technologies</li>
-              <li className="text-[#475569]">Projects</li>
-              <li className="text-[#475569]">About</li>
-              <li className="text-[#475569]">Contact</li>
+              <a href="#" className="text-[#D91B7E]">Home</a>
+              <a href="#" className="text-[#475569]">Technologies</a>
+              <a href="#" className="text-[#475569]">Projects</a>
+              <a href="#" className="text-[#475569]">About</a>
+              <a href="#" className="text-[#475569]">Contact</a>
             </ul>
           </div>
         )}
@@ -79,4 +79,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
