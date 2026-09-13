@@ -35,7 +35,7 @@ const YourStack = ({
       {/* Stack Items */}
       <div className="mt-5 space-y-2">
         {selectedStack.length === 0 ? (
-          <div className="py-10 text-center sm:py-12">
+          <div className="py-10 text-center sm:py-12 border-2 border-dotted border-gray-200 rounded-3xl">
             <p className="text-[14px] text-gray-400 sm:text-[16px]">
               Your stack is empty
             </p>

@@ -8,7 +8,29 @@ interface IDevStackCardProps {
   isAdded: boolean;
 }
 
+interface IBadgeColors {
+  [key: string]: string;
+}
+
+
+
 const DevStackCard = ({ devStack, onAdd, isAdded }: IDevStackCardProps) => {
+
+    const badgeColors: IBadgeColors = {
+      react: "border-[#E0F2FE] bg-[#F0F9FF] text-[#0EA5E9]",
+      vue: "border-[#D1FAE5] bg-[#ECFDF5] text-[#059669]",
+      svelte: "border-[#FFEDD5] bg-[#FFF7ED] text-[#EA580C]",
+      nextjs: "border-[#DFCAFF] bg-[#F3E8FF] text-[#7E22CE]",
+      nodejs: "border-[#D1FAE5] bg-[#ECFDF5] text-[#059669]",
+      postgresql: "border-[#DBEAFE] bg-[#EFF6FF] text-[#2563EB]",
+      redis: "border-[#FEE2E2] bg-[#FEF2F2] text-[#DC2626]",
+      javascript: "border-[#FEF3C7] bg-[#FFFBEB] text-[#D97706]",
+      typescript: "border-[#E0F2FE] bg-[#F0F9FF] text-[#0284C7]",
+      java: "border-[#E0F2FE] bg-[#F0F9FF] text-[#0284C7]",
+      tailwindcss: "border-[#CFFAFE] bg-[#ECFEFF] text-[#0891B2]",
+      docker: "border-[#E0F2FE] bg-[#F0F9FF] text-[#0284C7]",
+    };
+
   return (
     <article
       className={`card w-full min-h-auto rounded-3xl bg-white shadow-sm transition-shadow duration-300 ${
@@ -27,7 +49,7 @@ const DevStackCard = ({ devStack, onAdd, isAdded }: IDevStackCardProps) => {
             />
           </div>
 
-          <span className="badge max-w-[55%] truncate rounded-full border border-sky-100 bg-sky-50 px-3 py-2 text-[11px] font-medium text-sky-500 sm:px-4 sm:text-xs lg:px-5 lg:py-4 lg:text-sm">
+          <span className={ `badge max-w-[55%] truncate rounded-full border ${badgeColors[devStack.id] || 'border-sky-100 bg-sky-50 text-sky-500' } px-3 py-2 text-[11px] font-medium sm:px-4 sm:text-xs lg:px-5 lg:py-4 lg:text-sm `}>
             {devStack.badge}
           </span>
         </div>
@@ -86,26 +108,6 @@ const DevStackCard = ({ devStack, onAdd, isAdded }: IDevStackCardProps) => {
             </button>
           </div>
         </div>
-
-        {/* <div className="card-actions mt-3 sm:mt-4">
-          <button
-            onClick={() => onAdd(devStack)}
-            disabled={isAdded}
-            className={`btn h-9 min-h-9 w-full rounded-lg px-2 text-[12px] font-medium sm:h-10 sm:min-h-10 sm:text-[13px] lg:h-12 lg:min-h-12 lg:px-4 lg:text-[16px] ${
-              isAdded
-                ? "cursor-not-allowed border border-[#D91B7E] bg-[#FFF1F7] text-[#D91B7E]"
-                : "border-none bg-[#080d1d] text-white hover:bg-gray-800"
-            }`}>
-            {isAdded ? (
-              <span className="flex items-center justify-center gap-1">
-                <GiCheckMark className="text-[12px] sm:text-[13px] lg:text-[16px]" />
-                Added to Stack
-              </span>
-            ) : (
-              "Add to Stack"
-            )}
-          </button>
-        </div> */}
       </div>
     </article>
   );

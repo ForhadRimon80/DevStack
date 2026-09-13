@@ -31,25 +31,22 @@ const Footer = () => {
               <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:mt-7 sm:gap-x-5 lg:justify-start">
                 <a
                   href="#"
-                  aria-label="GitHub"
                   className="text-sm font-medium text-[#3f4d66] transition-colors duration-200 hover:text-[#e52b82] sm:text-base">
                   GitHub
                 </a>
 
-                <span className="text-[#3f4d66]">•</span>
+                <span className="inline text-[#3f4d66] md:hidden">•</span>
 
                 <a
                   href="#"
-                  aria-label="Twitter"
                   className="text-sm font-medium text-[#3f4d66] transition-colors duration-200 hover:text-[#e52b82] sm:text-base">
                   Twitter
                 </a>
 
-                <span className="text-[#3f4d66]">•</span>
+                <span className="inline text-[#3f4d66] md:hidden">•</span>
 
                 <a
                   href="#"
-                  aria-label="LinkedIn"
                   className="text-sm font-medium text-[#3f4d66] transition-colors duration-200 hover:text-[#e52b82] sm:text-base">
                   LinkedIn
                 </a>
@@ -122,7 +119,6 @@ const Footer = () => {
               </ul>
             </div>
 
-
             {/* Legal - Desktop Only */}
             <div className="hidden lg:block">
               <h3 className="text-sm font-semibold tracking-[0.2px] text-[#182238] sm:text-base">
@@ -148,7 +144,6 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-
 
           {/* Bottom Divider */}
           <div className="mt-10 border-t border-[#edf0f5] sm:mt-12 md:mt-14 lg:mt-16" />
