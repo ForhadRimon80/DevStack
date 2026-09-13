@@ -5,6 +5,8 @@ import type { IDevStackType } from "./types/DevStackType";
 import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 
+
+
 const fetchDevStacks = async (): Promise<IDevStackType[]> => {
   const res = await fetch("/data.json");
 
@@ -26,7 +28,7 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <DevStacksList devStackPromise={devStackPromise} />
       </Suspense>
-      
+
       <Footer />
     </>
   );
